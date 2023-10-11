@@ -1,8 +1,10 @@
+from linked_list import Node, LinkedList
+
 class HashMap:
     # Contructor
     def __init__(self, size):
         self.array_size = size
-        self.array = [None for i in range(size)]
+        self.array = [LinkedList() for i in range(size)]
 
     # Hash method
     def hash(self, key):
