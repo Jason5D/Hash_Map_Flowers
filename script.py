@@ -13,3 +13,22 @@ class HashMap:
     # Compression method
     def compressor(self, hash_code):
         return hash_code % self.array_size
+
+    # Assign new hash
+    def assign(self, key, value):
+        array_index = self.compressor(self.hash(key))
+        self.array[array_index] = [key, value]
+
+    # Hash retrieval
+    def retrieve(self, key):
+        array_index = self.compressor(self.hash(key))
+        payload = self.array[array_index]
+
+        if payload is None:
+            return None
+
+        if payload[0] != key:
+            return None
+
+        if payload[0] == key:
+            return payload[1]
